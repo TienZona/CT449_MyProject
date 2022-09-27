@@ -12,17 +12,14 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/contacts", contactsRouter);
-
-
 // handle 404 response
-app.use((req, res, next) => {
-    return next(new ApiError(404, "resuorce not found"));
-})
-
-app.use((err, req, res, next) => {
-    return res.status(ApiError.statusCode || 500).json({
-        message: ApiError.message || "Internal Server Error",
-    });
-});
+// app.use((req, res, next) => {
+//     return next(new ApiError(404, "Resource not found"));
+// });
+// app.use((err, req, res, next) => {
+//     return res.status(ApiError.statusCode || 500).json({
+//         message: ApiError.message || "Internal Server Error",
+//     });
+// });
 
 module.exports = app;
